@@ -1,1 +1,12 @@
-#mapid { height: 400px; }
+#mapid { 
+	height: 400px; 
+	width: 80%;
+}
+
+#panel {
+	width: 16%;
+}
+
+.leaflet-popup-content p {
+    margin: 0.2em 0;
+}

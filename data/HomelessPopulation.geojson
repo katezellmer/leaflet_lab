@@ -1,0 +1,320 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Austin",
+        "PopHomeless_2016": 2138,
+        "PopHomeless_2015": 1832,
+        "PopHomeless_2014": 1987,
+        "PopHomeless_2013": 2090,
+        "PopHomeless_2012": 2244,
+        "PopHomeless_2011": 1358,
+        "PopHomeless_2010": 2087,
+        "PopTotal_2016": 885400
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.735591,
+          30.267142
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Chicago",
+        "PopHomeless_2016": 8669,
+        "PopHomeless_2015": 8742,
+        "PopHomeless_2014": 8506,
+        "PopHomeless_2013": 8879,
+        "PopHomeless_2012": 10013,
+        "PopHomeless_2011": 9436,
+        "PopHomeless_2010": 8383,
+        "PopTotal_2016": 2719000
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.622328,
+          41.874307
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Dallas",
+        "PopHomeless_2016": 3810,
+        "PopHomeless_2015": 3141,
+        "PopHomeless_2014": 3514,
+        "PopHomeless_2013": 3163,
+        "PopHomeless_2012": 3447,
+        "PopHomeless_2011": 3297,
+        "PopHomeless_2010": 3710,
+        "PopTotal_2016": 1258000
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.800045,
+          32.782258
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Houston",
+        "PopHomeless_2016": 4031,
+        "PopHomeless_2015": 4609,
+        "PopHomeless_2014": 5308,
+        "PopHomeless_2013": 6359,
+        "PopHomeless_2012": 7187,
+        "PopHomeless_2011": 8471,
+        "PopHomeless_2010": 6368,
+        "PopTotal_2016": 2196000
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.382236,
+          29.770702
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Indianapolis",
+        "PopHomeless_2016": 1619,
+        "PopHomeless_2015": 1666,
+        "PopHomeless_2014": 1890,
+        "PopHomeless_2013": 1599,
+        "PopHomeless_2012": 1647,
+        "PopHomeless_2011": 1587,
+        "PopHomeless_2010": 1454,
+        "PopTotal_2016": 852866
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.161626,
+          39.768891
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Jacksonville",
+        "PopHomeless_2016": 1959,
+        "PopHomeless_2015": 1853,
+        "PopHomeless_2014": 2049,
+        "PopHomeless_2013": 2768,
+        "PopHomeless_2012": 2861,
+        "PopHomeless_2011": 3025,
+        "PopHomeless_2010": 2442,
+        "PopTotal_2016": 842583
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.666944,
+          30.330467
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Los Angeles",
+        "PopHomeless_2016": 43854,
+        "PopHomeless_2015": 41174,
+        "PopHomeless_2014": 34393,
+        "PopHomeless_2013": 35524,
+        "PopHomeless_2012": 31553,
+        "PopHomeless_2011": 34622,
+        "PopHomeless_2010": 33243,
+        "PopTotal_2016": 3884000
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.266204,
+          34.053182
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "New York",
+        "PopHomeless_2016": 73523,
+        "PopHomeless_2015": 75323,
+        "PopHomeless_2014": 67810,
+        "PopHomeless_2013": 51123,
+        "PopHomeless_2012": 56672,
+        "PopHomeless_2011": 51123,
+        "PopHomeless_2010": 53187,
+        "PopTotal_2016": 8406000
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.989026,
+          40.714678
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Philadelphia",
+        "PopHomeless_2016": 6112,
+        "PopHomeless_2015": 5998,
+        "PopHomeless_2014": 5738,
+        "PopHomeless_2013": 5645,
+        "PopHomeless_2012": 5780,
+        "PopHomeless_2011": 5780,
+        "PopHomeless_2010": 6084,
+        "PopTotal_2016": 1553000
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.166107,
+          39.952051
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "San Antonio",
+        "PopHomeless_2016": 2781,
+        "PopHomeless_2015": 2891,
+        "PopHomeless_2014": 2892,
+        "PopHomeless_2013": 2980,
+        "PopHomeless_2012": 3670,
+        "PopHomeless_2011": 2046,
+        "PopHomeless_2010": 3291,
+        "PopTotal_2016": 1409000
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.497968,
+          29.427325
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "San Diego",
+        "PopHomeless_2016": 8669,
+        "PopHomeless_2015": 8742,
+        "PopHomeless_2014": 8506,
+        "PopHomeless_2013": 8879,
+        "PopHomeless_2012": 10013,
+        "PopHomeless_2011": 9436,
+        "PopHomeless_2010": 8383,
+        "PopTotal_2016": 1356000
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.143269,
+          32.715694
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "San Francisco",
+        "PopHomeless_2016": 6996,
+        "PopHomeless_2015": 6775,
+        "PopHomeless_2014": 6408,
+        "PopHomeless_2013": 7008,
+        "PopHomeless_2012": 5895,
+        "PopHomeless_2011": 5669,
+        "PopHomeless_2010": 5823,
+        "PopTotal_2016": 852469
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4146,
+          37.776948
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "San Jose",
+        "PopHomeless_2016": 6524,
+        "PopHomeless_2015": 6556,
+        "PopHomeless_2014": 7567,
+        "PopHomeless_2013": 7631,
+        "PopHomeless_2012": 7053,
+        "PopHomeless_2011": 7067,
+        "PopHomeless_2010": 7086,
+        "PopTotal_2016": 1896000
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.895727,
+          37.337094
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Seattle",
+        "PopHomeless_2016": 10730,
+        "PopHomeless_2015": 10122,
+        "PopHomeless_2014": 8949,
+        "PopHomeless_2013": 9106,
+        "PopHomeless_2012": 8899,
+        "PopHomeless_2011": 8972,
+        "PopHomeless_2010": 9022,
+        "PopTotal_2016": 652405
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.322181,
+          47.606893
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Washington DC",
+        "PopHomeless_2016": 8350,
+        "PopHomeless_2015": 7298,
+        "PopHomeless_2014": 7748,
+        "PopHomeless_2013": 6865,
+        "PopHomeless_2012": 6954,
+        "PopHomeless_2011": 6546,
+        "PopHomeless_2010": 6228,
+        "PopTotal_2016": 658893
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.026249,
+          38.90728
+        ]
+      }
+    }
+  ]
+}
