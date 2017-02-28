@@ -9,6 +9,9 @@ var map = L.map('map').setView([40, -95], 3);
 //call getData function
 getData(map);
 
+// implement search functionality
+
+
 //calculate the radius of each proportional symbol
 function calcPropRadius(attValue) {
     //scale factor to adjust symbol size evenly
@@ -21,11 +24,11 @@ function calcPropRadius(attValue) {
     return radius;
 };
 
-
-
-function pointToLayer(feature, latlng) {
-     // create marker options
-    var attribute = "PopHomeless_2016";
+function pointToLayer(feature, latlng, attributes) {
+     // assign current attribute based on the first index of the attributes array
+    var attribute = attributes[0];
+    console.log(attribute);
+    
     var geojsonMarkerOptions = {
                 radius: 8,
                 fillColor: "#AE3BFF",
@@ -57,28 +60,90 @@ function pointToLayer(feature, latlng) {
 
 }
 // Step 3: Add circle markers for point features to the map
-function createPropSymbols(data, map){
+function createPropSymbols(data, map, attributes){
    //create a Leaflet GeoJSON layer and add it to the map
     L.geoJson(data, {
-        pointToLayer: pointToLayer
+        pointToLayer: function(feature, latlng){
+            return pointToLayer(feature, latlng, attributes);
+        } 
     }).addTo(map);
 }
 
 //Step 1: Create new sequence controls
-function createSequenceControls(map){
+function createSequenceControls(map, attributes){
     //create range input element (slider)
     $('#panel').append('<input class="range-slider" type="range">');
-    //$('#panel').append('<button class="skip" id="reverse">Reverse</button>');
-    //$('#panel').append('<button class="skip" id="forward">Skip</button>');
-    //$('#reverse').html('<img src="img/rewind.png">');
-    //$('#forward').html('<img src="img/forward.png">');
+    $('#panel').append('<button class="skip" id="reverse">Reverse</button>');
+    $('#panel').append('<button class="skip" id="forward">Skip</button>');
+    $('#reverse').html('<img src="img/rewind.png">');
+    $('#forward').html('<img src="img/forward.png">');
         //set slider attributes
     $('.range-slider').attr({
-        max: 20000,
+        max: 6,
         min: 0,
         value: 0,
-        step: 100
+        step: 1
     });
+
+    //Below Example 3.6 in createSequenceControls()
+    //Step 5: click listener for buttons
+    $('.skip').click(function(){
+        //get the old index value
+        var index = $('.range-slider').val();
+
+        //Step 6: increment or decrement depending on button clicked
+        if ($(this).attr('id') == 'forward'){
+            index++;
+            //Step 7: if past the last attribute, wrap around to first attribute
+            index = index > 6 ? 0 : index;
+        } else if ($(this).attr('id') == 'reverse'){
+            index--;
+            //Step 7: if past the first attribute, wrap around to last attribute
+            index = index < 0 ? 6 : index;
+        };
+
+        //Step 8: update slider
+        $('.range-slider').val(index);
+        //Called in both skip button and slider event listener handlers
+        //Step 9: pass new attribute to update symbols
+        updatePropSymbols(map, attributes[index]);
+    });
+
+    //Step 5: input listener for slider
+    $('.range-slider').on('input', function(){
+        //Step 6: get the new index value
+        var index = $(this).val();
+        //Called in both skip button and slider event listener handlers
+        //Step 9: pass new attribute to update symbols
+        updatePropSymbols(map, attributes[index]);
+    });
+};
+
+//Step 10: Resize proportional symbols according to new attribute values
+function updatePropSymbols(map, attribute){
+    map.eachLayer(function(layer){
+        if (layer.feature && layer.feature.properties[attribute]){
+            //access feature properties
+            var props = layer.feature.properties;
+
+            //update each feature's radius based on new attribute values
+            var radius = calcPropRadius(props[attribute]);
+            layer.setRadius(radius);
+
+            //add city to popup content string
+            var popupContent = "<p><b>City:</b> " + props.City + "</p>";
+
+            //add formatted attribute to panel content string
+            var year = attribute.split("_")[1];
+            popupContent += "<p><b>Population in " + year + ":</b> " + props[attribute] + " million</p>";
+
+            //replace the layer popup
+            layer.bindPopup(popupContent, {
+                offset: new L.Point(0,-radius)
+            });
+        };
+    });
+
 
 };
 
@@ -103,7 +168,7 @@ function processData(data){
     return attributes;
 };
 
-//Step 2: Import GeoJSON data
+//Import GeoJSON data
 function getData(map){
     //load the data
     $.ajax("data/HomelessPopulation.geojson", {
@@ -111,7 +176,7 @@ function getData(map){
         success: function(response){
             var attributes = processData(response);
             //call function to create proportional symbols
-            createPropSymbols(response, map);
+            createPropSymbols(response, map, attributes);
             createSequenceControls(map, attributes);
 
         }
