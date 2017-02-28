@@ -6,23 +6,8 @@ var map = L.map('map').setView([40, -95], 3);
     maxZoom: 15
 }).addTo(map);
 
-var searchLayer = L.geoJson().addTo(map);
-map.addControl( new L.Control.Search({layer: searchLayer}) );
-//... adding data in searchLayer ...
-
 //call getData function
 getData(map);
-
-// implement search functionality
-function search(feature) {
-    require(["leaflet", "leafletSearch"],function(L, LeafletSearch) {
-
-        map.addControl( new LeafletSearch({
-            layer: dataLayer
-        }) );
-    });
-}
-
 
 //calculate the radius of each proportional symbol
 function calcPropRadius(attValue) {
@@ -63,22 +48,24 @@ function pointToLayer(feature, latlng, attributes) {
 
     //add formatted attribute to popup content string
     var year = attribute.split("_")[1];
-    popupContent += "<p><b>Population in " + year + ":</b> " + feature.properties[attribute] + " million</p>";
+    popupContent += "<p><b>Population in " + year + ":</b> " + feature.properties[attribute] + " homeless</p>";
     //bind the popup to the circle marker
     layer.bindPopup(popupContent);
 
     //return the circle marker to the L.geoJson pointToLayer option
     return layer;
-
 }
+
 // Step 3: Add circle markers for point features to the map
 function createPropSymbols(data, map, attributes){
    //create a Leaflet GeoJSON layer and add it to the map
-    L.geoJson(data, {
+    var featuresLayer = L.geoJson(data, {
         pointToLayer: function(feature, latlng){
+
             return pointToLayer(feature, latlng, attributes);
         } 
     }).addTo(map);
+    implementSearch(data, featuresLayer);
 }
 
 //Step 1: Create new sequence controls
@@ -155,8 +142,6 @@ function updatePropSymbols(map, attribute){
             });
         };
     });
-
-
 };
 
 function processData(data){
@@ -180,6 +165,31 @@ function processData(data){
     return attributes;
 };
 
+function implementSearch(data, currLayer) {
+        var searchControl = new L.Control.Search({
+                layer: currLayer,
+                propertyName: 'City',
+                marker: false,
+                moveToLocation: function(latlng, title, map) {
+                    //map.fitBounds( latlng.layer.getBounds() );
+                    var zoom = map.getBoundsZoom(latlng.layer.getBounds());
+                    map.setView(latlng, zoom); // access the zoom
+                }
+        });
+
+        searchControl.on('search:locationfound', function(e) {
+            e.layer.setStyle({fillColor: '#3f0', color: '#0f0'});
+                if(e.layer._popup)
+                        e.layer.openPopup();
+                }).on('search:collapsed', function(e) {
+                    currLayer.eachLayer(function(layer) {   //restore feature color
+                        currLayer.resetStyle(layer);
+                });
+        });
+                
+        map.addControl(searchControl);  //inizialize search control
+}
+
 //Import GeoJSON data
 function getData(map){
     //load the data
@@ -190,7 +200,6 @@ function getData(map){
             //call function to create proportional symbols
             createPropSymbols(response, map, attributes);
             createSequenceControls(map, attributes);
-
         }
     });
 };
