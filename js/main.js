@@ -6,10 +6,22 @@ var map = L.map('map').setView([40, -95], 3);
     maxZoom: 15
 }).addTo(map);
 
+var searchLayer = L.geoJson().addTo(map);
+map.addControl( new L.Control.Search({layer: searchLayer}) );
+//... adding data in searchLayer ...
+
 //call getData function
 getData(map);
 
 // implement search functionality
+function search(feature) {
+    require(["leaflet", "leafletSearch"],function(L, LeafletSearch) {
+
+        map.addControl( new LeafletSearch({
+            layer: dataLayer
+        }) );
+    });
+}
 
 
 //calculate the radius of each proportional symbol
