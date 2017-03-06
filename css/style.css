@@ -26,10 +26,42 @@
     width: 50%;
 }
 
+.temporal-legend {
+    width: 50%;
+}
+
 #forward {
     float: right;
 }
 
 #reverse {
     float: left;
+}
+
+.sequence-control-container {
+    width: 350px;
+    height: 30px;
+    background-color: rgba(255,255,255,0.8);
+    padding: 10px;
+    line-height: 45px;
+    text-align: center;
+    border: solid gray 1px;
+}
+
+.legend-control-container {
+    width: 150px;
+    height: 150px;
+    background-color: rgba(255,255,255,0.8);
+    padding: 10px;
+    line-height: 45px;
+    text-align: center;
+    border: solid gray 1px;
+}
+
+#temporal-legend {
+    float: left;
+}
+
+.range-slider {
+    width: 200px;
 }
