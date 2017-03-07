@@ -5,13 +5,13 @@
       "type": "Feature",
       "properties": {
         "City": "Austin",
-        "PopHomeless_2010": 2087,
-        "PopHomeless_2011": 1358,
-        "PopHomeless_2012": 2244,
-        "PopHomeless_2013": 2090,
-        "PopHomeless_2014": 1987,
-        "PopHomeless_2015": 1832,
-        "PopHomeless_2016": 2138
+        "Pop_2010": 24,
+        "Pop_2011": 15,
+        "Pop_2012": 25,
+        "Pop_2013": 24,
+        "Pop_2014": 22,
+        "Pop_2015": 21,
+        "Pop_2016": 24
       },
       "geometry": {
         "type": "Point",
@@ -25,13 +25,13 @@
       "type": "Feature",
       "properties": {
         "City": "Chicago",
-        "PopHomeless_2010": 8383,
-        "PopHomeless_2011": 9436,
-        "PopHomeless_2012": 10013,
-        "PopHomeless_2013": 8879,
-        "PopHomeless_2014": 8506,
-        "PopHomeless_2015": 8742,
-        "PopHomeless_2016": 8669
+        "Pop_2010": 31,
+        "Pop_2011": 35,
+        "Pop_2012": 32,
+        "Pop_2013": 33,
+        "Pop_2014": 31,
+        "Pop_2015": 32,
+        "Pop_2016": 32
       },
       "geometry": {
         "type": "Point",
@@ -45,13 +45,13 @@
       "type": "Feature",
       "properties": {
         "City": "Dallas",
-        "PopHomeless_2010": 3710,
-        "PopHomeless_2011": 3297,
-        "PopHomeless_2012": 3447,
-        "PopHomeless_2013": 3163,
-        "PopHomeless_2014": 3514,
-        "PopHomeless_2015": 3141,
-        "PopHomeless_2016": 3810
+        "Pop_2010": 29,
+        "Pop_2011": 26,
+        "Pop_2012": 29,
+        "Pop_2013": 25,
+        "Pop_2014": 28,
+        "Pop_2015": 25,
+        "Pop_2016": 30
       },
       "geometry": {
         "type": "Point",
@@ -65,13 +65,13 @@
       "type": "Feature",
       "properties": {
         "City": "Houston",
-        "PopHomeless_2010": 6368,
-        "PopHomeless_2011": 8471,
-        "PopHomeless_2012": 7187,
-        "PopHomeless_2013": 6359,
-        "PopHomeless_2014": 5308,
-        "PopHomeless_2015": 4609,
-        "PopHomeless_2016": 4031
+        "Pop_2010": 29,
+        "Pop_2011": 39,
+        "Pop_2012": 29,
+        "Pop_2013": 29,
+        "Pop_2014": 24,
+        "Pop_2015": 21,
+        "Pop_2016": 18
       },
       "geometry": {
         "type": "Point",
@@ -85,13 +85,13 @@
       "type": "Feature",
       "properties": {
         "City": "Indianapolis",
-        "PopHomeless_2010": 1454,
-        "PopHomeless_2011": 1587,
-        "PopHomeless_2012": 1647,
-        "PopHomeless_2013": 1599,
-        "PopHomeless_2014": 1890,
-        "PopHomeless_2015": 1666,
-        "PopHomeless_2016": 1619
+        "Pop_2010": 17,
+        "Pop_2011": 19,
+        "Pop_2012": 17,
+        "Pop_2013": 19,
+        "Pop_2014": 22,
+        "Pop_2015": 20,
+        "Pop_2016": 19
       },
       "geometry": {
         "type": "Point",
@@ -105,13 +105,13 @@
       "type": "Feature",
       "properties": {
         "City": "Jacksonville",
-        "PopHomeless_2010": 2442,
-        "PopHomeless_2011": 3025,
-        "PopHomeless_2012": 2861,
-        "PopHomeless_2013": 2768,
-        "PopHomeless_2014": 2049,
-        "PopHomeless_2015": 1853,
-        "PopHomeless_2016": 1959
+        "Pop_2010": 29,
+        "Pop_2011": 36,
+        "Pop_2012": 29,
+        "Pop_2013": 33,
+        "Pop_2014": 24,
+        "Pop_2015": 22,
+        "Pop_2016": 23
       },
       "geometry": {
         "type": "Point",
@@ -125,13 +125,13 @@
       "type": "Feature",
       "properties": {
         "City": "Los Angeles",
-        "PopHomeless_2010": 33243,
-        "PopHomeless_2011": 34622,
-        "PopHomeless_2012": 31553,
-        "PopHomeless_2013": 35524,
-        "PopHomeless_2014": 34393,
-        "PopHomeless_2015": 41174,
-        "PopHomeless_2016": 43854
+        "Pop_2010": 85,
+        "Pop_2011": 89,
+        "Pop_2012": 85,
+        "Pop_2013": 91,
+        "Pop_2014": 88,
+        "Pop_2015": 106,
+        "Pop_2016": 113
       },
       "geometry": {
         "type": "Point",
@@ -145,13 +145,13 @@
       "type": "Feature",
       "properties": {
         "City": "New York",
-        "PopHomeless_2010": 53187,
-        "PopHomeless_2011": 51123,
-        "PopHomeless_2012": 56672,
-        "PopHomeless_2013": 51123,
-        "PopHomeless_2014": 67810,
-        "PopHomeless_2015": 75323,
-        "PopHomeless_2016": 73523
+        "Pop_2010": 63,
+        "Pop_2011": 61,
+        "Pop_2012": 63,
+        "Pop_2013": 61,
+        "Pop_2014": 82,
+        "Pop_2015": 90,
+        "Pop_2016": 87
       },
       "geometry": {
         "type": "Point",
@@ -165,13 +165,13 @@
       "type": "Feature",
       "properties": {
         "City": "Philadelphia",
-        "PopHomeless_2010": 6084,
-        "PopHomeless_2011": 5780,
-        "PopHomeless_2012": 5780,
-        "PopHomeless_2013": 5645,
-        "PopHomeless_2014": 5738,
-        "PopHomeless_2015": 5998,
-        "PopHomeless_2016": 6112
+        "Pop_2010": 39,
+        "Pop_2011": 37,
+        "Pop_2012": 39,
+        "Pop_2013": 36,
+        "Pop_2014": 37,
+        "Pop_2015": 39,
+        "Pop_2016": 39
       },
       "geometry": {
         "type": "Point",
@@ -185,13 +185,13 @@
       "type": "Feature",
       "properties": {
         "City": "San Antonio",
-        "PopHomeless_2010": 3291,
-        "PopHomeless_2011": 2046,
-        "PopHomeless_2012": 3670,
-        "PopHomeless_2013": 2980,
-        "PopHomeless_2014": 2892,
-        "PopHomeless_2015": 2891,
-        "PopHomeless_2016": 2781
+        "Pop_2010": 23,
+        "Pop_2011": 15,
+        "Pop_2012": 23,
+        "Pop_2013": 21,
+        "Pop_2014": 21,
+        "Pop_2015": 21,
+        "Pop_2016": 20
       },
       "geometry": {
         "type": "Point",
@@ -205,13 +205,13 @@
       "type": "Feature",
       "properties": {
         "City": "San Diego",
-        "PopHomeless_2010": 8383,
-        "PopHomeless_2011": 9436,
-        "PopHomeless_2012": 10013,
-        "PopHomeless_2013": 8879,
-        "PopHomeless_2014": 8506,
-        "PopHomeless_2015": 8742,
-        "PopHomeless_2016": 8669
+        "Pop_2010": 62,
+        "Pop_2011": 70,
+        "Pop_2012": 62,
+        "Pop_2013": 65,
+        "Pop_2014": 63,
+        "Pop_2015": 64,
+        "Pop_2016": 64
       },
       "geometry": {
         "type": "Point",
@@ -225,13 +225,13 @@
       "type": "Feature",
       "properties": {
         "City": "San Francisco",
-        "PopHomeless_2010": 5823,
-        "PopHomeless_2011": 5669,
-        "PopHomeless_2012": 5895,
-        "PopHomeless_2013": 7008,
-        "PopHomeless_2014": 6408,
-        "PopHomeless_2015": 6775,
-        "PopHomeless_2016": 6996
+        "Pop_2010": 70,
+        "Pop_2011": 68,
+        "Pop_2012": 69,
+        "Pop_2013": 84,
+        "Pop_2014": 77,
+        "Pop_2015": 81,
+        "Pop_2016": 84
       },
       "geometry": {
         "type": "Point",
@@ -244,14 +244,34 @@
     {
       "type": "Feature",
       "properties": {
+        "City": "Atlanta",
+        "Pop_2010": 157,
+        "Pop_2011": 152,
+        "Pop_2012": 157,
+        "Pop_2013": 124,
+        "Pop_2014": 107,
+        "Pop_2015": 96,
+        "Pop_2016": 91
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.382849,
+          33.749937
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "City": "Seattle",
-        "PopHomeless_2010": 9022,
-        "PopHomeless_2011": 8972,
-        "PopHomeless_2012": 8899,
-        "PopHomeless_2013": 9106,
-        "PopHomeless_2014": 8949,
-        "PopHomeless_2015": 10122,
-        "PopHomeless_2016": 10730
+        "Pop_2010": 138,
+        "Pop_2011": 138,
+        "Pop_2012": 138,
+        "Pop_2013": 140,
+        "Pop_2014": 137,
+        "Pop_2015": 155,
+        "Pop_2016": 164
       },
       "geometry": {
         "type": "Point",
@@ -265,19 +285,39 @@
       "type": "Feature",
       "properties": {
         "City": "Washington DC",
-        "PopHomeless_2010": 6228,
-        "PopHomeless_2011": 6546,
-        "PopHomeless_2012": 6954,
-        "PopHomeless_2013": 6865,
-        "PopHomeless_2014": 7748,
-        "PopHomeless_2015": 7298,
-        "PopHomeless_2016": 8350
+        "Pop_2010": 95,
+        "Pop_2011": 99,
+        "Pop_2012": 95,
+        "Pop_2013": 104,
+        "Pop_2014": 118,
+        "Pop_2015": 111,
+        "Pop_2016": 127
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
           -77.026249,
           38.90728
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "City": "Denver",
+        "Pop_2010": 195,
+        "Pop_2011": 107,
+        "Pop_2012": 195,
+        "Pop_2013": 141,
+        "Pop_2014": 148,
+        "Pop_2015": 119,
+        "Pop_2016": 128
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.982867,
+          39.738661
         ]
       }
     }

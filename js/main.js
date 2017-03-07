@@ -1,17 +1,18 @@
 // create the map
-var map = L.map('map').setView([40, -95], 3);
+var map = L.map('map').setView([35, -98], 4);
 
-    L.tileLayer('https://api.mapbox.com/styles/v1/katezellmer/ciuyj1kpx00hd2js59nk6alff/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoia2F0ZXplbGxtZXIiLCJhIjoiY2l1dDZpMHhkMDBrMTJ0bjBkNThmcDRtcCJ9.a7-sXy-HPat2xCkGnlKmJw', {
+    L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/dark-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoia2F0ZXplbGxtZXIiLCJhIjoiY2l1dDZpMHhkMDBrMTJ0bjBkNThmcDRtcCJ9.a7-sXy-HPat2xCkGnlKmJw', {
     maxZoom: 10
 }).addTo(map);
 
 //call getData function
 getData(map);
 
+// PROPORTIONAL SYMBOLS
 //calculate the radius of each proportional symbol
 function calcPropRadius(attValue) {
     //scale factor to adjust symbol size evenly
-    var scaleFactor = .1;
+    var scaleFactor = 12;
     //area based on attribute value and scale factor
     var area = attValue * scaleFactor;
     //radius calculated based on area
@@ -20,6 +21,7 @@ function calcPropRadius(attValue) {
     return radius;
 };
 
+// create layer markers
 function pointToLayer(feature, latlng, attributes) {
      // assign current attribute based on the first index of the attributes array
     var attribute = attributes[0];
@@ -27,11 +29,11 @@ function pointToLayer(feature, latlng, attributes) {
     
     var geojsonMarkerOptions = {
                 radius: 8,
-                fillColor: "#AE3BFF",
+                fillColor: "#75A8B0",
                 color: "#000",
                 weight: 1,
                 opacity: 1,
-                fillOpacity: 0.8
+                fillOpacity: 0.7
     };
 
     //For each feature, determine its value for the selected attribute
@@ -48,7 +50,7 @@ function pointToLayer(feature, latlng, attributes) {
     return layer;
 }
 
-// Step 3: Add circle markers for point features to the map
+//Add circle markers for point features to the map
 function createPropSymbols(data, map, attributes){
    //create a Leaflet GeoJSON layer and add it to the map
     var featuresLayer = L.geoJson(data, {
@@ -60,6 +62,25 @@ function createPropSymbols(data, map, attributes){
     implementSearch(data, map, featuresLayer);
 }
 
+//Resize proportional symbols according to new attribute values
+function updatePropSymbols(map, attribute){
+    map.eachLayer(function(layer){
+        if (layer.feature && layer.feature.properties[attribute]){
+            //access feature properties
+            var props = layer.feature.properties;
+
+            //update each feature's radius based on new attribute values
+            var radius = calcPropRadius(props[attribute]);
+            layer.setRadius(radius);
+            
+            createPopup(props, attribute, layer, radius);
+            updateLegend(map, attribute);
+
+        };
+    });
+};
+
+// SEQUENCE CONTROLS
 function createSequenceControls(map, attributes){
         var SequenceControl = L.Control.extend({
         options: {
@@ -131,47 +152,7 @@ function createSequenceControls(map, attributes){
     });
 };
 
-function createLegend(map, attributes) {
-    var LegendControl = L.Control.extend({
-        options: {
-            position: 'bottomright'
-        },
-
-        onAdd: function (map) {
-            // create the control container with a particular class name
-            var container = L.DomUtil.create('div', 'legend-control-container');
-
-            //add temporal legend div to container
-            $(container).append('<div id="temporal-legend">')
-
-            //Step 1: start attribute legend svg string
-            var svg = '<svg id="attribute-legend" width="160px" height="60px">';
-
-            //array of circle names to base loop on
-            var circles = ["max", "mean", "min"];
-
-            //Step 2: loop to add each circle and text to svg string
-            for (var i=0; i<circles.length; i++){
-                //circle string
-                svg += '<circle class="legend-circle" id="' + circles[i] + 
-                '" fill="#F47821" fill-opacity="0.8" stroke="#000000" cx="30"/>';
-            };
-
-            //close svg string
-            svg += "</svg>";
-
-            //add attribute legend svg to container
-            $(container).append(svg);
-
-            return container;
-        }
-    });
-
-    map.addControl(new LegendControl());
-
-    updateLegend(map, attributes[0]);
-}
-
+// LEGEND
 //Calculate the max, mean, and min values for a given attribute
 function getCircleValues(map, attribute){
     //start with min at highest possible and max at lowest possible number
@@ -206,11 +187,58 @@ function getCircleValues(map, attribute){
     };
 };
 
+function createLegend(map, attributes) {
+    var LegendControl = L.Control.extend({
+        options: {
+            position: 'bottomright'
+        },
+
+        onAdd: function (map) {
+            // create the control container with a particular class name
+            var container = L.DomUtil.create('div', 'legend-control-container');
+
+            //add temporal legend div to container
+            $(container).append('<div id="temporal-legend">')
+
+            //Step 1: start attribute legend svg string
+            var svg = '<svg id="attribute-legend" width="180px" height="200px">';
+
+            //object to base loop on...replaces Example 3.10 line 1
+            var circles = {
+                max: 20,
+                mean: 40,
+                min: 60
+            };
+
+            //loop to add each circle and text to svg string
+            for (var circle in circles){
+                //circle string
+                svg += '<circle class="legend-circle" id="' + circle + '" fill="#75A8B0" fill-opacity="0.8" stroke="#000000" cx="50"/>';
+
+                //text string
+                svg += '<text id="' + circle + '-text" x="100" y="' + circles[circle] + '"></text>';
+            };
+
+            //close svg string
+            svg += "</svg>";
+
+            //add attribute legend svg to container
+            $(container).append(svg);
+
+            return container;
+        }
+    });
+
+    map.addControl(new LegendControl());
+
+    updateLegend(map, attributes[0]);
+}
+
 //Update the legend with new attribute
 function updateLegend(map, attribute){
     //create content for legend
     var year = attribute.split("_")[1];
-    var content = "<b>Number Homeless in " + year;
+    var content = "<b>Number of Homeless People per 10000 in " + year;
 
     //replace legend content
     $('#temporal-legend').html(content);
@@ -224,42 +252,31 @@ function updateLegend(map, attribute){
 
         //Step 3: assign the cy and r attributes
         $('#'+key).attr({
-            cy: 59 - radius,
+            cy: 65 - radius,
             r: radius
         });
+
+        //Step 4: add legend text
+        $('#'+key+'-text').text(Math.round(circleValues[key]*100)/100 + " homeless");
     }
 };
-//Step 10: Resize proportional symbols according to new attribute values
-function updatePropSymbols(map, attribute){
-    map.eachLayer(function(layer){
-        if (layer.feature && layer.feature.properties[attribute]){
-            //access feature properties
-            var props = layer.feature.properties;
 
-            //update each feature's radius based on new attribute values
-            var radius = calcPropRadius(props[attribute]);
-            layer.setRadius(radius);
-            
-            createPopup(props, attribute, layer, radius);
-            updateLegend(map, attribute);
-
-        };
-    });
-};
-
+// POP UP
+// create popups
 function createPopup(properties, attribute, layer, radius){
     //add city to popup content string
     var popupContent = "<p><b>City:</b> " + properties.City + "</p>";
 
     //add formatted attribute to panel content string
     var year = attribute.split("_")[1];
-    popupContent += "<p><b>Homeless Population " + year + ":</b> " + properties[attribute] + " homeless</p>";
+    popupContent += "<p><b>Homeless Population " + year + ":</b> " + properties[attribute] + " homeless for every 10000 residents</p>";
 
     //replace the layer popup
     layer.bindPopup(popupContent, {
         offset: new L.Point(0,-radius)
     });
 };
+
 
 function processData(data){
     //empty array to hold attributes
@@ -282,20 +299,25 @@ function processData(data){
     return attributes;
 };
 
+// SEARCH
+// function to implement the search function
 function implementSearch(data, map, currLayer) {
+        // create search element
         var searchControl = new L.Control.Search({
                 layer: currLayer,
                 propertyName: 'City',
                 marker: false,
                 moveToLocation: function(latlng, title, mymap) {
                     //map.fitBounds( latlng.layer.getBounds() );
-                    var zoom = mymap.getBoundsZoom(latlng.layer.getBounds());
+                    console.log(latlng);
+                    var zoom = 6;
                     map.setView(latlng, zoom); // access the zoom
                 }
         });
 
+        // describing function when search found
         searchControl.on('search:locationfound', function(e) {
-            e.layer.setStyle({fillColor: '#3f0', color: '#0f0'});
+            e.layer.setStyle({fillColor: '#B8F6FF', color: '#B8F6FF'});
                 if(e.layer._popup)
                         e.layer.openPopup();
                 }).on('search:collapsed', function(e) {

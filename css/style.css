@@ -1,6 +1,19 @@
-#mapid { 
-	height: 400px; 
-	width: 80%;
+body {
+    background-color: #567A8C;
+
+}
+
+a {
+    color: black;
+}
+
+p {
+    font-family: 'Open Sans', sans-serif;
+    margin: 3px;
+}
+h1 {
+    font-family: 'Archivo Black', sans-serif;
+    margin: 0px;
 }
 
 .leaflet-popup-content p {
@@ -8,13 +21,15 @@
 }
 
 #map {
-    height: 400px;
-    width: 80%;
-    display: inline-block;
+    height: 550px;
+    width: 90%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #panel {
-    width: 26%;
+    width: 30%;
     padding: 20px;
     display: inline-block;
     vertical-align: top;
@@ -41,19 +56,19 @@
 .sequence-control-container {
     width: 350px;
     height: 30px;
-    background-color: rgba(255,255,255,0.8);
-    padding: 10px;
+    background-color: rgba(166,176,176,0.8);
+    padding: 12px;
     line-height: 45px;
     text-align: center;
     border: solid gray 1px;
 }
 
 .legend-control-container {
-    width: 150px;
-    height: 150px;
-    background-color: rgba(255,255,255,0.8);
+    width: 180px;
+    height: 100px;
+    background-color: rgba(166,176,176,0.8);
     padding: 10px;
-    line-height: 45px;
+    line-height: 15px;
     text-align: center;
     border: solid gray 1px;
 }
